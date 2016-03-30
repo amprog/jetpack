@@ -178,59 +178,15 @@
 	display: inline-block;
 }
 
-.miguel {
-	display: none;
-	position: fixed;
-	opacity: .35;
-	bottom: -200px;
-	left: 0;
-	z-index: 1;
-	-webkit-animation: miguel 3.4s 0s ease-in-out;
-	animation: miguel 3.4s 0s ease-in-out;
-}
-
-.miguel:nth-child(2) {
-	left: 49%;
-	width: 120px;
-	height: 131px;
-	-webkit-animation-duration: 2.4s;
-	animation-duration: 2.4s;
-	-webkit-animation-delay: 0s;
-	animation-delay: 0s;
-}
-
-.miguel:nth-child(3) {
-	left: 23%;
-	width: 60px;
-	height: 66px;
-	-webkit-animation-duration: 4.5s;
-	animation-duration: 4.5s;
-	-webkit-animation-delay: 0s;
-	animation-delay: 0s;
-}
-
-@-webkit-keyframes "miguel" {
-	0% {
-		-webkit-transform: translate3d(0px, 0px, 0px);
-		transform: translate3d(0px, 0px, 0px);
-	}
-	100% {
-		-webkit-transform: translate3d(900px, -900px, 0px);
-		transform: translate3d(900px, -900px, 0px);
-	}
-}
-@keyframes "miguel" {
-	0% {
-		-webkit-transform: translate3d(0px, 0px, 0px);
-		transform: translate3d(0px, 0px, 0px);
-	}
-	100% {
-		-webkit-transform: translate3d(900px, -900px, 0px);
-		transform: translate3d(900px, -900px, 0px);
-	}
-}
-
 // Nux landing page 2015
+
+@mixin vertalign { // vertical center this div
+		position: absolute;
+		top: 50%;
+		-ms-transform: translate(0,-50%);
+		-webkit-transform: translate(0,-50%);
+		transform: translate(0,-50%);
+}
 
 .nux-intro {
 
@@ -307,8 +263,17 @@
 			border-bottom: 1px $clouds solid;
 			padding: 5px 0;
 			position: relative;
+			min-height: 70px; // moderating consistent heights w/o JS
 			&:hover {
 				background: darken($clouds, 10%);
+			}
+		}
+
+		.unavailable {
+			opacity: 0.5;
+
+			.act {
+				display: none;
 			}
 		}
 
@@ -360,15 +325,9 @@
 	}
 
 	.act {
-		float: right;
-
-		// vertical center this div
-		position: absolute;
-		top: 50%;
+		@include vertalign;
 		right: 8px;
-		-ms-transform: translate(0,-50%);
-		-webkit-transform: translate(0,-50%);
-		transform: translate(0,-50%);
+		float: right;
 
 		&.j-col {
 			padding: 5px;
@@ -401,6 +360,7 @@
 		.goto {
 			text-align: center;
 			padding: 1em;
+
 			&:hover {
 				background: darken($clouds, 5%);
 			}
@@ -416,8 +376,17 @@
 			} 
 
 			.button {
+				height: auto;
+				min-height: 28px;
+				line-height: 18px;
+				white-space: normal;
 				max-width: 200px;
 				margin-bottom: 0;
+				padding-top: 4px;
+				padding-bottom: 5px;
+			}
+			.feat {
+				@include vertalign;
 			}
 		} // go-to
 	}
@@ -446,9 +415,17 @@
 		@media (max-width: 650px) { border-left: none; border-top: 1px $clouds solid; }
 	}
 
+	.actions {
+		margin-top: 1em;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+
 	img {
-		float: left;
-		margin-right: 1em;
+		float: right;
+		margin-left: 1em;
 		width: 75px;
 		border-radius: 4px;
 	}
@@ -470,8 +447,11 @@
 		margin-bottom: 0;
 
 		li {
+			margin-right: .875em;
 			margin-bottom: 0;
 			line-height: 175%;
+			display: inline-block;
+			vertical-align: middle;
 		}
 	}
 } // nux-foot
@@ -619,19 +599,22 @@
 					float: none;
 					clear: both;
 					border: none;
+					border-top: 1px $clouds solid; 
+					position: relative; // hides border of 2nd to last j-row
+					top: -1px;
+				}
+			}
+			.goto {
+				.feat a {
+					float: left;
 				}
 			}
 		}
-	}	
+	}	// nux-intro
 
 	.nux-foot {
 		.j-col {
 			border: none;
-		}
-		img {
-			float: right;
-			margin-right: 0;
-			margin-left: 1em;
 		}
 	}
 

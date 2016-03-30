@@ -25,6 +25,9 @@
   display: table;
   padding: 10px 10px 10px 0;
 }
+#message.jp-identity-crisis .jp-id-banner__content .success-notice {
+  color: #fff;
+}
 #message.jp-identity-crisis .jp-id-banner__content .banner-content {
   display: table-row;
 }
@@ -47,10 +50,10 @@
   text-decoration: none;
   -webkit-transform: all 1s ease;
 }
-#message.jp-identity-crisis .jp-id-banner__content .btn-group {
+#message.jp-identity-crisis .jp-id-banner__content .jp-btn-group {
   display: table-row;
 }
-#message.jp-identity-crisis .jp-id-banner__content .btn-group a {
+#message.jp-identity-crisis .jp-id-banner__content .jp-btn-group a {
   display: inline-block;
   margin: 10px 0 0 0;
   padding: 0 0 1px 0;
@@ -59,11 +62,11 @@
   text-decoration: none;
   -webkit-transform: all 1s ease;
 }
-#message.jp-identity-crisis .jp-id-banner__content .btn-group a:hover {
+#message.jp-identity-crisis .jp-id-banner__content .jp-btn-group a:hover {
   color: white;
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
 }
-#message.jp-identity-crisis .jp-id-banner__content .btn-group .idc-separator {
+#message.jp-identity-crisis .jp-id-banner__content .jp-btn-group .idc-separator {
   margin: 0 6px;
 }
 
@@ -97,7 +100,7 @@
 #message.jp-banner a {
   color: #fff;
 }
-#message.jp-banner h4 {
+#message.jp-banner h2 {
   display: block;
   margin: 0;
   padding: 0;
@@ -106,7 +109,7 @@
   line-height: 1.3;
   font-weight: normal;
 }
-#message.jp-banner h4 + p {
+#message.jp-banner h2 + p {
   margin-top: 10px;
 }
 
@@ -305,7 +308,7 @@
 #message.jp-banner.protect-error .jp-banner__content {
   color: #444;
 }
-#message.jp-banner.protect-error .jp-banner__content h4, #message.jp-banner.protect-error .jp-banner__content a {
+#message.jp-banner.protect-error .jp-banner__content h2, #message.jp-banner.protect-error .jp-banner__content a {
   color: #d94f4f;
 }
 #message.jp-banner.protect-error .jp-banner__content a:hover {
@@ -325,3 +328,5 @@
 #message.jp-banner.protect-error .jp-banner__dismiss:before {
   color: #a0a5aa;
 }
+
+/*# sourceMappingURL=jetpack-banners.css.map */
